@@ -1,0 +1,414 @@
+#EXTM3U
+# ============================================================
+# সম্পূর্ণ IPTV প্লেলিস্ট - Rollaxt TV
+# মোট চ্যানেল: 150+ (স্পোর্টস, বাংলা, বিনোদন, সিনেমা, গান, কার্টুন, ডকুমেন্টারি, সংবাদ)
+# ============================================================
+
+# ==================== SPORTS ====================
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Caze TV",Caze TV
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Caze TV BR",Caze TV BR
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Caze TV 720",Caze TV (720)
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/720p-vtt/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="CAZE TV 2",CAZE TV 2
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/3ynrpdanq2/out/v1/81fd4c26584044d2b1a1cc5b32fa9af0/cenc.mpd
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="CAZE TV 3",CAZE TV 3
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/epg9sw6owc/out/v1/e50aecefcb294fae85d6b343e0a6f1cc/cenc.mpd
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Star Sports 1 HD",Star Sports 1 HD
+http://41.205.93.154/STARSPORTS1/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Star Sports 1 Hindi",Star Sports 1 Hindi
+http://103.157.248.140:8000/play/a00g/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Star Sports 2 Hindi HD",Star Sports 2 Hindi HD
+http://103.157.248.140:8000/play/a01m/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="REAL MADRID TV",REAL MADRID TV
+https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="REAL MADRID TV ENG",REAL MADRID TV English
+https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="BEIN SPORT EXTRA",BEIN SPORT EXTRA Ñ
+https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="BEIN SPORTS Ñ",BEIN SPORTS Ñ
+https://amg01334-beinsportsllc-beinxtraesp-localnow-aekzc.amagi.tv/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="BEIN SPORTS 1 AU",BEIN SPORTS 1 AU
+https://wahyu1ptv.pages.dev/AstroBein2.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="BEIN SPORTS XTRA",BEIN SPORTS XTRA
+https://dc1644a9jazgj.cloudfront.net/beIN_Sports_Xtra_Espanol1080.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Bein Xtra 720",Bein Xtra (720)
+https://d9ssxzmclhfo4.cloudfront.net/bein_sports720p.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FOX Sports 720",FOX Sports (720)
+https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports720p.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FOX Sports 2",FOX Sports 2
+http://190.61.101.11:7050/play/a08v/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FOX Sports 3",FOX SPORTS 3
+http://45.5.119.43:4000/play/a024/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FS1",FS1
+http://41.223.30.230/FOXSPORTS1/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FOX NY",FOX NY
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00488-foxdigital-wnyw-lgus/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Fox Deportes",Fox Deportes
+http://23.237.104.106:8080/USA_FOX_DEPORTES/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="IDMANTV",IDMANTV 🇹🇷
+https://str2.yodacdn.net/idman_300_to_small/tracks-v1a1/mono.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="SKY SPORTS ACTION",SKY SPORTS ACTION
+http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/VCQ4ADX96VH4G8PY7URBWRQU/9155/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="SKY SPORT LALIGA",SKY SPORT LALIGA 🇲🇽
+http://179.60.224.196:8000/play/a0i7/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="SKY SPORTS GT",SKY SPORTS GT
+http://45.171.64.30:2000/play/a08m/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Hub Sports 2 HD",Hub Sports 2 HD
+http://tv-premium-pro.com/live/wezqqszfr2/i7481xvrdf/280823.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Hub Sports 3 HD",Hub Sports 3 HD
+http://tv-premium-pro.com/live/wezqqszfr2/i7481xvrdf/280824.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="2TV Sport",2TV Sport 🇳🇴
+https://tv.cdn.xsg.ge/gpb-2tv/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="GO 3 sport 1",GO 3 sport 1 hd
+http://ytoxw6un.ottclub.xyz/iptv/KCUHA6DGYYVA8ZZFUPQV3KZH/18000/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="GO 3 sport 2",GO 3 sport 2 hd
+http://ytoxw6un.ottclub.xyz/iptv/KCUHA6DGYYVA8ZZFUPQV3KZH/18001/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="T Sports",T Sports
+http://luckonline.eu/live/y49sz6KMQs/6115263489/1142.ts
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="T Sports HD",T Sports HD B
+http://198.195.239.50:8095/tsports/tracks-v1a1/mono.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="PTV Sports",PTV Sports
+http://198.195.239.50:8095/ptv/tracks-v1a1/mono.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Tampad",Tampad
+https://premierleagpl23.akamaized.net/hls/live/2107108/tapmad-P2s6L_FiN@L-UrU/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Win Sports",Win Sports
+https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Bein US",Bein US
+http://23.237.104.106:8080/USA_BEIN/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Dazn Direct",Dazn Direct
+https://1nyaler.streamhostingcdn.top/stream/94/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="DAZN FAST+",DAZN FAST+
+https://ac-003.live.p7s1video.net/63f8995e/t_003/dazn-fast-hd/cenc-default.mpd
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="DAZN COMBAT",DAZN COMBAT
+https://dazn-combat-rakuten.amagi.tv/hls/amagi_hls_data_rakutenAA-dazn-combat-rakuten/CDN/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="DAZN 1",DAZN 1
+http://znty.dyndns.org:5010/hls/eleven1.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="DAZN 2",DAZN 2
+http://23.237.104.106:8080/DAZN_2/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TVP Sports",TVP Sports
+https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="D Sports",D Sports
+https://1nyaler.streamhostingcdn.top/stream/106/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TYC Sports",TYC Sports
+https://1nyaler.streamhostingcdn.top/stream/84/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Tv Azteca",Tv Azteca
+https://1nyaler.streamhostingcdn.top/stream/117/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Tudn Sports",Tudn Sports 🇲🇽
+https://1nyaler.streamhostingcdn.top/stream/52/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TUDN",TUDN
+http://24.152.53.3:8090/play/a012/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TUDN USA",TUDN USA
+http://m3u.tvcluboficial.com/m/m/957.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Redbull TV",Redbull TV
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_3360.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="NBA",NBA
+http://41.223.30.230/ESPN2/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Willow SPORTS",Willow SPORTS
+https://d36r8jifhgsk5j.cloudfront.net/Willow_TV.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Cricket Gold",Cricket Gold
+https://d1nj4u39ja4cn0.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/FLS-MuxIP-CricketGold/418.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="UFC FIGHT PASS",UFC FIGHT PASS 1
+http://vipmdvmxqha.top:8080/VIP0175170262473041/91702624730057/129980
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FIGHT NETWORK",FIGHT NETWORK
+https://amg00966-amg00966c10-amgplt0201.playout.now3.amagi.tv/playlist/amg00966-amg00966c10-amgplt0201/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="FUEL TV",FUEL TV
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01074-fueltv-fueltvemeaen-sportstribal/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="GCTV",GCTV
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00585-sportstribaltv-gctv-sportstribal/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="GoPro",GoPro
+https://3a1b4d927c02473b806350cc162d271f.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-891-GOPRO-FREELIVESPORTS/mt/freelivesports/891/hls/master/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="H20 TV",H20 TV
+https://1261a78709344810a5b834d397509879.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-738-H2OTV-SPORTSTRIBALTV/mt/sportstribaltv/738/hls/master/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="ESPN",ESPN
+http://181.118.158.103:8000/play/a038/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="ESPN 2",ESPN 2
+http://181.118.158.103:8000/play/a039/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="ESPN 4",ESPN 4
+http://45.5.119.43:4000/play/a028/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="ESPN 5",ESPN 5
+http://181.118.158.103:8000/play/a03c/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="ESPN Premium",espn premium
+http://205.235.6.29:8000/play/a0pz/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TNT Sports",tnt sport
+http://205.235.6.29:8000/play/a0xa/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TNT Sports Premium",TNT SPORTS PREMIUM 🇬🇧
+http://200.115.120.1:8000/play/ca040/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="TNT Sports ARG",TNT Sports ARG
+https://1nyaler.streamhostingcdn.top/stream/30/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Claro Sports",CLARO SPORTS
+http://162.19.255.233:8080/play/UNbAl57p9hXZClOu56FCTUSaL5q1VtS-E1wCfb1nvO4/m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Movistar Deportes",Movistar Deportes
+http://38.226.210.46:8000/play/a06d/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Gol TV",Gol TV
+http://38.44.109.41:8003/play/a02h/index.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Golf Channel",Golf Channel
+http://45.167.1.136:8000/play/a05s
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="MAX SPORT 1",MAX SPORT 1 🇧🇬
+http://77.46.130.252:99/maxsport1
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="MAX SPORT 2",MAX SPORT 2 🇧🇬
+http://77.46.130.252:99/maxsport2
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="MAX SPORT 3",MAX SPORT 3 🇧🇬
+http://77.46.130.252:99/maxsport3
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="MAX SPORT 4",MAX SPORT 4 🇧🇬
+http://77.46.130.252:99/maxsport4
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Матч!",Матч! 🇷🇺
+http://catchup.videoline.ru/match/tracks-v1a1/mono.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="МАТЧ! ФУТБOЛ 1HD",МАТЧ! ФУТБOЛ 1HD 🇷🇺
+http://cdntv.online/low/9mlxywika2/55.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Digi Sport 2",Digi Sport 2 🇷🇴
+http://91.201.172.14:35006/
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Sportdigital",Sportdigital 🇩🇪
+https://jmp2.uk/stvp-ATAJ0500433A
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="L'Equipe",L'Equipe 🇫🇷
+https://jmp2.uk/stvp-FR200016Y5
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="SPORT ITALIA",SPORT ITALIA 🇮🇹
+https://amg01370-italiansportcom-sportitalia-rakuten-3hmdb.amagi.tv/amRdirect/hls/amagi_hls_data_rakutenAA-sportitalia-rakuten/CDN/1920x1080_4540800/chunklist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="9XM Music",9XM Music
+https://9xjio.wiseplayout.com/9XM/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="9X Jalwa",9X Jalwa
+https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Live Music",Live Music
+https://cdn-2.pishow.tv/live/415/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="InWonder",InWonder
+https://amg00861-terninternation-inwonder-samsungau-1k63k.amagi.tv/playlist/amg00861-terninternation-inwonder-samsungau/playlist.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Music Master",Music Master
+https://cdn-3.pishow.tv/live/230/master.m3u8
+
+#EXTINF:-1 group-title="Sports" tvg-logo="" tvg-name="Live Bangla",Live Bangla
+https://live-bangla.akamaized.net/liveabr/playlist.m3u8
+
+# ==================== BANGLADESH ====================
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="বিটিভি",বিটিভি
+https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Somoy TV",Somoy TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Channel 24",Channel 24
+https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/1703-audio_113332_eng=113200-video=2202800.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Channel 9 HD",Channel 9 HD
+https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/1729-audio_113592_eng=113200-video=1181200.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Bangla Vision",Bangla Vision
+https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/1715-audio_113452_eng=113200-video=1181200.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Maasranga TV",Maasranga TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/1722.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="NTV",NTV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/1716-audio_113462_eng=113200-video=1181200.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="RTV Live",RTV Live
+https://tvsen6.aynaott.com/rtv/tracks-v1a1/mono.ts.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="ATN News HD",ATN News HD
+https://tvsen5.aynaott.com/atnbangla/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Channel I",Channel I
+https://tvsen6.aynaott.com/channeli/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Jamuna TV",Jamuna TV
+https://tvsen6.aynaott.com/jamunatv/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Independent TV",Independent TV
+https://tvsen6.aynaott.com/independenttv/tracks-v1a1/mono.ts.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="Deepto TV",Deepto TV
+https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="News 24",News 24
+https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="DBC News",DBC News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8
+
+#EXTINF:-1 group-title="Bangladesh" tvg-logo="" tvg-name="SA TV",SA Tv
+https://tvsen6.aynaott.com/satv/index.m3u8
+
+# ==================== ENTERTAINMENT ====================
+
+#EXTINF:-1 group-title="Entertainment" tvg-logo="" tvg-name="Star Jalsha",Star Jalsha
+https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8
+
+#EXTINF:-1 group-title="Entertainment" tvg-logo="" tvg-name="Zee Bangla",Zee Bangla
+http://main.epgmaker.com/live/y49sz6KMQs/6115263489/536.ts
+
+#EXTINF:-1 group-title="Entertainment" tvg-logo="" tvg-name="Colors Bangla",Colors Bangla
+http://main.epgmaker.com/live/y49sz6KMQs/6115263489/532.ts
+
+#EXTINF:-1 group-title="Entertainment" tvg-logo="" tvg-name="Sun Bangla",Sun Bangla
+http://27.124.71.27/Sun_Bangla/index.m3u8
+
+#EXTINF:-1 group-title="Entertainment" tvg-logo="" tvg-name="Sony Aath",Sony Aath
+https://edge2.roarzone.net:8447/roarzone/edge3/sonyaath/index.m3u8
+
+# ==================== MOVIES ====================
+
+#EXTINF:-1 group-title="Movies" tvg-logo="" tvg-name="Jalsha Movies",Jalsha Movies
+http://198.195.239.50:8095/JalshaMovies/tracks-v1a1/mono.m3u8
+
+#EXTINF:-1 group-title="Movies" tvg-logo="" tvg-name="Star Gold",Star Gold
+http://198.195.239.50:8095/StarGold/index.m3u8
+
+#EXTINF:-1 group-title="Movies" tvg-logo="" tvg-name="Goldmines",Goldmines
+https://cdn-2.pishow.tv/live/1459/master.m3u8
+
+#EXTINF:-1 group-title="Movies" tvg-logo="" tvg-name="Goldmines Movies",Goldmines Movies
+https://cdn-2.pishow.tv/live/1461/master.m3u8
+
+#EXTINF:-1 group-title="Movies" tvg-logo="" tvg-name="Sony Max HD",Sony Max HD
+https://edge2.roarzone.net:8447/roarzone/edge3/sony_max_hd/index.m3u8
+
+#EXTINF:-1 group-title="Movies" tvg-logo="" tvg-name="B4U Movies",B4U Movies
+https://amg00877-b4unew-amg00877c2-xiaomi-in-5489.playouts.now.amagi.tv/playlist.m3u8
+
+# ==================== MUSIC ====================
+
+#EXTINF:-1 group-title="Music" tvg-logo="" tvg-name="Sangeet Bangla",Sangeet Bangla
+https://cdn-4.pishow.tv/live/1143/master.m3u8
+
+#EXTINF:-1 group-title="Music" tvg-logo="" tvg-name="9X Tashan",9X Tashan
+https://wiselp.wiseplayout.com/9X_Tashan/master.m3u8
+
+#EXTINF:-1 group-title="Music" tvg-logo="" tvg-name="Party Universe",Party Universe
+https://nomawnoijl.gpcdn.net/akash/partyuniverse/playlist.m3u8
+
+# ==================== CARTOON ====================
+
+#EXTINF:-1 group-title="Cartoon" tvg-logo="" tvg-name="Cartoon Network",Cartoon Network
+https://tvsen5.aynaott.com/cartoonnetwork/tracks-v1a1/mono.ts.m3u8
+
+#EXTINF:-1 group-title="Cartoon" tvg-logo="" tvg-name="Motu Patlu",Motu Patlu
+https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8
+
+#EXTINF:-1 group-title="Cartoon" tvg-logo="" tvg-name="Tom & Jerry TV",Tom & Jerry TV
+https://live20.bozztv.com/giatvplayout7/giatv-208314/tracks-v1a1/mono.ts.m3u8
+
+#EXTINF:-1 group-title="Cartoon" tvg-logo="" tvg-name="Doraemon TV",Doraemon TV
+https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8
+
+#EXTINF:-1 group-title="Cartoon" tvg-logo="" tvg-name="Mr Bean Animated",Mr Bean Animated
+https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-rakutenit/playlist.m3u8
+
+# ==================== DOCUMENTARY ====================
+
+#EXTINF:-1 group-title="Documentary" tvg-logo="" tvg-name="Discovery Bangla",Discovery Bangla
+http://103.180.212.191:3500/live/573.m3u8
+
+#EXTINF:-1 group-title="Documentary" tvg-logo="" tvg-name="BBC Earth",BBC Earth
+https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist540p.m3u8
+
+#EXTINF:-1 group-title="Documentary" tvg-logo="" tvg-name="Wild Earth",Wild Earth
+https://wildearth-plex.amagi.tv/master.m3u8
+
+#EXTINF:-1 group-title="Documentary" tvg-logo="" tvg-name="Animal Planet",Animal Planet
+https://tiger-hub.vercel.app@vodzong.mjunoon.tv:8087/streamtest/Animal-Planet-158-3/playlist.m3u8
+
+#EXTINF:-1 group-title="Documentary" tvg-logo="" tvg-name="Documentary+",Documentary+
+https://a38d899367d24b1197db60dedfa80262.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-887-DOCUMENTARYINTERNATIONAL-FREELIVESPORTS/mt/freelivesports/887/hls/master/playlist.m3u8
+
+# ==================== NEWS ====================
+
+#EXTINF:-1 group-title="News" tvg-logo="" tvg-name="Republic Bangla",Republic Bangla
+https://vg-republictvlive.akamaized.net/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/06e5afc2-a022-4e51-9131-4e33a6207c5c/1.m3u8
+
+#EXTINF:-1 group-title="News" tvg-logo="" tvg-name="Star News",Star News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/1710-audio_113402_eng=113200-video=1181200.m3u8
+
+#EXTINF:-1 group-title="News" tvg-logo="" tvg-name="Jago News 24",Jago News 24
+https://app.ncare.live/live-orgin/jagonews24.stream/live-orgin/jagonews24.stream/chunks.m3u8
+
+#EXTINF:-1 group-title="News" tvg-logo="" tvg-name="RS News",RS News
+https://video07.logicahost.com.br/rsnews01/rsnews01/playlist.m3u8
+
+#EXTINF:-1 group-title="News" tvg-logo="" tvg-name="INFOSPORT",INFOSPORT 🇫🇷
+http://212.102.60.80/Infosport/index.m3u8
