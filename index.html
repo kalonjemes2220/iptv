@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Rollaxt TV | স্মার্ট স্ট্রিমার</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000000; font-family: 'Inter', sans-serif; color: #e5e5e5; }
+
+        .header { background: #0a0a0a; border-bottom: 1px solid #222; padding: 12px 16px; position: sticky; top: 0; z-index: 100; }
+        .logo-area { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .logo { font-size: 1.3rem; font-weight: 700; }
+        .logo i { color: #e50914; margin-right: 5px; }
+        .header-right { display: flex; gap: 12px; align-items: center; }
+        .live-badge { background: #e50914; font-size: 0.6rem; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+        .help-icon { background: #1a6e1a; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; }
+        .help-icon:active { background: #00aa00; transform: scale(0.95); }
+        .help-icon i { color: white; font-size: 0.8rem; }
+        
+        .search-box { display: flex; align-items: center; background: #141414; border-radius: 25px; padding: 8px 15px; margin-bottom: 12px; border: 1px solid #2a2a2a; }
+        .search-box i { color: #666; margin-right: 10px; font-size: 0.8rem; }
+        .search-box input { background: none; border: none; color: white; flex: 1; font-size: 0.8rem; outline: none; }
+        .search-box input::placeholder { color: #555; }
+        
+        .categories { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+        .categories::-webkit-scrollbar { display: none; }
+        .cat-btn { background: transparent; border: none; padding: 6px 16px; border-radius: 25px; font-size: 0.75rem; font-weight: 500; color: #aaa; cursor: pointer; white-space: nowrap; transition: 0.2s; }
+        .cat-btn.active { background: #e50914; color: white; }
+
+        .player-container { background: #000; aspect-ratio: 16/9; width: 100%; position: relative; background-color: #0a0a0a; }
+        #playerVideo { width: 100%; height: 100%; background: #000; outline: none; }
+        .player-info { padding: 10px 16px; background: #0a0a0a; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+        .current-channel { font-size: 0.85rem; font-weight: 500; }
+        .status { font-size: 0.7rem; color: #00ff88; display: flex; align-items: center; gap: 5px; }
+        .status.offline { color: #ff8888; }
+        .status i { font-size: 8px; }
+        
+        .channels-section { padding: 12px 16px; max-height: 45vh; overflow-y: auto; }
+        .section-title { font-size: 0.7rem; font-weight: 600; color: #e50914; letter-spacing: 1px; margin-bottom: 12px; border-left: 3px solid #e50914; padding-left: 10px; }
+        
+        .channels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        .channel-card { background: #1a1a1a; border-radius: 10px; padding: 10px; cursor: pointer; transition: 0.1s; border: 1px solid #2a2a2a; }
+        .channel-card:active { background: #2a2a2a; transform: scale(0.98); }
+        .channel-card.active { border-color: #e50914; background: #1e1e2e; box-shadow: 0 0 5px rgba(229,9,20,0.3); }
+        .channel-card-name { font-size: 0.8rem; font-weight: 500; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .channel-card-group { font-size: 0.6rem; color: #777; }
+        .channel-card-live { font-size: 0.55rem; color: #00ff88; margin-top: 6px; display: flex; align-items: center; gap: 4px; }
+        
+        html { scroll-behavior: smooth; }
+        
+        @media (max-width: 500px) {
+            .channels-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+            .channel-card { padding: 8px; }
+            .channel-card-name { font-size: 0.7rem; }
+            .channels-section { max-height: 40vh; }
+        }
+        
+        .loading { text-align: center; padding: 40px; color: #666; }
+        .spinner { width: 24px; height: 24px; border: 2px solid #222; border-top-color: #e50914; border-radius: 50%; animation: spin 0.6s linear infinite; margin: 0 auto 12px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        .dev-btn { position: fixed; bottom: 20px; right: 20px; background: #1a1a1a; border: none; color: #888; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 150; font-size: 1rem; transition: 0.2s; }
+        .dev-btn:active { background: #e50914; color: white; }
+        
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #000000cc; backdrop-filter: blur(12px); z-index: 200; display: flex; align-items: center; justify-content: center; visibility: hidden; opacity: 0; transition: 0.2s; }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        .modal-card { background: #1a1a2a; border-radius: 16px; padding: 20px; width: 90%; max-width: 380px; border: 1px solid #e50914; }
+        .modal-card h3 { margin-bottom: 15px; color: #e50914; font-size: 1rem; }
+        .modal-card input { width: 100%; background: #0a0a0a; border: 1px solid #333; padding: 10px; border-radius: 8px; color: white; margin-bottom: 12px; font-size: 0.8rem; }
+        .modal-card button { background: #e50914; border: none; padding: 10px; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; width: 100%; margin-bottom: 8px; transition: 0.1s; }
+        .modal-card button:active { opacity: 0.8; }
+        .modal-card .close-btn { background: #333; }
+        .error-msg { color: #ff6666; font-size: 0.7rem; margin-top: 8px; display: none; }
+        
+        .footer { text-align: center; font-size: 0.55rem; color: #333; padding: 16px; border-top: 1px solid #111; margin-top: 20px; }
+        .toast-msg { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #1a6e1a; color: white; padding: 8px 16px; border-radius: 30px; font-size: 0.7rem; z-index: 200; display: none; white-space: nowrap; }
+        
+        /* সরাসরি m3u8/ts এর জন্য কিছু স্টাইল */
+        video::-webkit-media-controls-panel { background-color: rgba(0,0,0,0.7); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-area">
+            <div class="logo"><i class="fas fa-tv"></i> ROLLAXT TV</div>
+            <div class="header-right">
+                <div class="help-icon" id="helpBtn"><i class="fab fa-telegram"></i></div>
+                <div class="live-badge">LIVE</div>
+            </div>
+        </div>
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="সার্চ চ্যানেল...">
+        </div>
+        <div class="categories" id="categoriesContainer">
+            <button class="cat-btn active" data-cat="all">সব</button>
+            <button class="cat-btn" data-cat="Bangladesh">বাংলাদেশ</button>
+            <button class="cat-btn" data-cat="Sports">স্পোর্টস</button>
+            <button class="cat-btn" data-cat="Entertainment">বিনোদন</button>
+            <button class="cat-btn" data-cat="Movies">সিনেমা</button>
+            <button class="cat-btn" data-cat="Music">গান</button>
+            <button class="cat-btn" data-cat="News">সংবাদ</button>
+        </div>
+    </div>
+
+    <div class="player-container">
+        <video id="playerVideo" controls autoplay playsinline crossorigin="anonymous"></video>
+    </div>
+    <div class="player-info">
+        <div class="current-channel" id="currentChannelName">একটি চ্যানেল সিলেক্ট করুন</div>
+        <div class="status" id="playerStatus"><i class="fas fa-circle" style="font-size: 8px;"></i> লাইভ</div>
+    </div>
+
+    <div class="channels-section" id="channelsSection">
+        <div class="section-title" id="sectionTitle">সব চ্যানেল</div>
+        <div id="channelsGrid" class="channels-grid">
+            <div class="loading"><div class="spinner"></div> লোড হচ্ছে...</div>
+        </div>
+    </div>
+    <div class="footer">⚡ Powered by Rollaxtt | ডুয়াল সোর্স | m3u8/TS স্ট্রিম সাপোর্ট</div>
+
+    <div id="toastMsg" class="toast-msg"><i class="fab fa-telegram"></i> টেলিগ্রামে যোগাযোগ করুন: @Rollaxtt</div>
+    <button class="dev-btn" id="devBtn"><i class="fas fa-cog"></i></button>
+
+    <div id="passwordModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3><i class="fas fa-lock"></i> অ্যাডমিন ভেরিফিকেশন</h3>
+            <input type="password" id="adminPassword" placeholder="পাসওয়ার্ড">
+            <button id="verifyBtn">ভেরিফাই করুন</button>
+            <div id="passError" class="error-msg">ভুল পাসওয়ার্ড!</div>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="modal-overlay">
+        <div class="modal-card">
+            <h3><i class="fas fa-shield-alt"></i> অ্যাডমিন প্যানেল</h3>
+            <input type="text" id="mainUrlInput" placeholder="মূল M3U লিংক">
+            <input type="text" id="backupUrlInput" placeholder="ব্যাকআপ M3U লিংক (ঐচ্ছিক)">
+            <button id="saveUrlBtn">সংরক্ষণ করুন</button>
+            <button id="closeAdminBtn" class="close-btn">বন্ধ</button>
+            <hr style="border-color: #333; margin: 12px 0;">
+            <p style="font-size: 0.65rem; text-align: center;">
+                <i class="fab fa-telegram"></i> যোগাযোগ: <a href="https://t.me/Rollaxtt" target="_blank" style="color:#e50914;">@Rollaxtt</a>
+            </p>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+    (function() {
+        // ---------- কনফিগারেশন ----------
+        const ADMIN_PASSWORD = 'Qwer@#2006';
+        const TELEGRAM_USERNAME = 'Rollaxtt';
+        // একটি সমৃদ্ধ M3U যা বিভিন্ন m3u8 ও TS লিংক সাপোর্ট করে (GitHub raw file)
+        const DEFAULT_M3U = 'https://raw.githubusercontent.com/sanjoykb/-KB-TV-Playlist/refs/heads/main/Github%20Auto%20Update%20Channel.m3u';
+        
+        let currentM3uUrl = localStorage.getItem('rollaxtt_m3u_url') || DEFAULT_M3U;
+        let currentBackupM3uUrl = localStorage.getItem('rollaxtt_backup_m3u_url') || '';
+        
+        let allChannels = [];
+        let filteredChannels = [];
+        let currentCategory = 'all';
+        let searchKeyword = '';
+        let hls = null;
+        let currentPlayingChannel = null;
+        let currentVideoUrl = null;
+        
+        // DOM elements
+        const video = document.getElementById('playerVideo');
+        const channelsGrid = document.getElementById('channelsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const categoriesContainer = document.getElementById('categoriesContainer');
+        const currentChannelNameSpan = document.getElementById('currentChannelName');
+        const playerStatusSpan = document.getElementById('playerStatus');
+        const sectionTitleSpan = document.getElementById('sectionTitle');
+        const helpBtn = document.getElementById('helpBtn');
+        const toastMsg = document.getElementById('toastMsg');
+        
+        // হেল্প টোস্ট
+        let toastTimeout;
+        function showToast(msg) {
+            if(msg) toastMsg.innerHTML = msg;
+            else toastMsg.innerHTML = `<i class="fab fa-telegram"></i> টেলিগ্রামে যোগাযোগ করুন: @${TELEGRAM_USERNAME}`;
+            toastMsg.style.display = 'block';
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toastMsg.style.display = 'none', 2500);
+        }
+        
+        helpBtn.addEventListener('click', () => {
+            window.open(`https://t.me/${TELEGRAM_USERNAME}`, '_blank');
+            showToast();
+        });
+        
+        // ---------- M3U পার্সিং (যেকোনো m3u8/ts url সাপোর্ট) ----------
+        async function parseM3U(url) {
+            if(!url) return [];
+            try {
+                const res = await fetch(url, { cache: 'no-store' });
+                if(!res.ok) return [];
+                const text = await res.text();
+                const lines = text.split(/\r?\n/);
+                const channels = [];
+                let tmp = null;
+                for(let line of lines) {
+                    line = line.trim();
+                    if(line.startsWith('#EXTINF:')) {
+                        // গ্রুপ ও নাম এক্সট্রাক্ট
+                        const groupMatch = line.match(/group-title="([^"]*)"/);
+                        let group = groupMatch ? groupMatch[1] : 'General';
+                        let nameMatch = line.match(/,([^,]+)$/);
+                        let name = nameMatch ? nameMatch[1].trim() : 'Unknown';
+                        // ইমোজি পরিষ্কার
+                        name = name.replace(/[🏆🇦🇷🇫🇷🇩🇪🇮🇪🇧🇷🇪🇸🇺🇸🇧🇩🇩🇿🇲🇽🇷🇸⭐🔥🎬📺]/g, '').trim();
+                        if(name.length === 0) name = 'চ্যানেল';
+                        tmp = { name, group, url: '' };
+                    } else if(line.startsWith('http') && tmp) {
+                        tmp.url = line;
+                        if(tmp.url && tmp.url.match(/\.(m3u8|ts|mp4|mkv|mov)$/i) || tmp.url.includes('.m3u8') || tmp.url.includes('playlist')) {
+                            channels.push({...tmp});
+                        } else if(tmp.url.startsWith('http')) {
+                            // যেকোনো ভ্যালিড HTTP URL গ্রহণ (যেমন ts/m3u8)
+                            channels.push({...tmp});
+                        }
+                        tmp = null;
+                    }
+                }
+                // ডুপ্লিকেট নাম বাদ দিন
+                const unique = [];
+                const seen = new Set();
+                for(let ch of channels) {
+                    if(!seen.has(ch.name.toLowerCase())) {
+                        seen.add(ch.name.toLowerCase());
+                        unique.push(ch);
+                    }
+                }
+                return unique;
+            } catch(e) {
+                console.warn("M3U parse error", e);
+                return [];
+            }
+        }
+        
+        // main + backup মার্জ
+        function mergeChannels(main, backup) {
+            const backupMap = new Map();
+            for(const ch of backup) backupMap.set(ch.name.toLowerCase(), ch);
+            const merged = [];
+            for(const ch of main) {
+                const lowerName = ch.name.toLowerCase();
+                const backupCh = backupMap.get(lowerName);
+                merged.push({
+                    name: ch.name,
+                    group: ch.group,
+                    mainUrl: ch.url,
+                    backupUrl: backupCh ? backupCh.url : null,
+                    hasBackup: !!backupCh
+                });
+                if(backupCh) backupMap.delete(lowerName);
+            }
+            // বাকি ব্যাকআপ চ্যানেল যোগ করুন যেগুলো main এ নেই
+            for(const ch of backupMap.values()) {
+                merged.push({
+                    name: ch.name,
+                    group: ch.group,
+                    mainUrl: null,
+                    backupUrl: ch.url,
+                    hasBackup: true,
+                    isOnlyBackup: true
+                });
+            }
+            return merged;
+        }
+        
+        async function loadAllChannels() {
+            channelsGrid.innerHTML = '<div class="loading"><div class="spinner"></div> লোড হচ্ছে...</div>';
+            try {
+                const mainPromise = parseM3U(currentM3uUrl);
+                const backupPromise = currentBackupM3uUrl ? parseM3U(currentBackupM3uUrl) : Promise.resolve([]);
+                const [main, backup] = await Promise.all([mainPromise, backupPromise]);
+                allChannels = mergeChannels(main, backup);
+                applyFilters();
+            } catch(err) {
+                console.error(err);
+                channelsGrid.innerHTML = '<div class="loading">প্লেলিস্ট লোড করতে ব্যর্থ। পরে আবার চেষ্টা করুন।</div>';
+            }
+        }
+        
+        function applyFilters() {
+            let filtered = allChannels.filter(ch => {
+                if(currentCategory !== 'all' && ch.group !== currentCategory) return false;
+                if(searchKeyword.trim()) {
+                    const kw = searchKeyword.toLowerCase();
+                    return ch.name.toLowerCase().includes(kw) || ch.group.toLowerCase().includes(kw);
+                }
+                return true;
+            });
+            filtered.sort((a,b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+            filteredChannels = filtered;
+            renderChannels();
+        }
+        
+        function renderChannels() {
+            if(filteredChannels.length === 0) {
+                channelsGrid.innerHTML = '<div class="loading">কোনো চ্যানেল খুঁজে পাওয়া যায়নি</div>';
+                return;
+            }
+            let html = '';
+            for(let i = 0; i < filteredChannels.length; i++) {
+                const ch = filteredChannels[i];
+                let shortName = ch.name.length > 25 ? ch.name.slice(0,22)+'...' : ch.name;
+                html += `
+                    <div class="channel-card" data-index="${i}">
+                        <div class="channel-card-name">${escapeHtml(shortName)}</div>
+                        <div class="channel-card-group">${escapeHtml(ch.group)}</div>
+                        <div class="channel-card-live"><i class="fas fa-circle" style="font-size: 6px;"></i> LIVE</div>
+                    </div>
+                `;
+            }
+            channelsGrid.innerHTML = html;
+            
+            document.querySelectorAll('.channel-card').forEach(card => {
+                card.addEventListener('click', async (e) => {
+                    const idx = parseInt(card.dataset.index);
+                    const channel = filteredChannels[idx];
+                    if(channel) {
+                        document.querySelectorAll('.channel-card').forEach(c => c.classList.remove('active'));
+                        card.classList.add('active');
+                        // স্ক্রলে আনুন
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        await playChannel(channel);
+                    }
+                });
+            });
+        }
+        
+        // স্ট্রিমিং ইঞ্জিন - HLS এবং Native m3u8/mp4/ts সম্পূর্ণ সাপোর্ট
+        async function playChannel(channel) {
+            if(!channel) return;
+            currentPlayingChannel = channel;
+            currentChannelNameSpan.innerText = channel.name;
+            playerStatusSpan.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> সংযোগ...';
+            playerStatusSpan.classList.remove('offline');
+            
+            // কোন ইউআরএল কাজ করে তা খুঁজে বের করি (SMART FAILOVER)
+            let selectedUrl = null;
+            let isBackup = false;
+            
+            // ফাংশন: URL টেস্ট (HEAD request বা GET ছোট্ট অংশ)
+            async function testUrl(url, timeoutMs = 4000) {
+                if(!url) return false;
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+                    // HEAD সব সার্ভার সাপোর্ট করে না, তাই range request বা সংক্ষিপ্ত fetch
+                    const res = await fetch(url, { method: 'GET', signal: controller.signal, headers: { 'Range': 'bytes=0-1' } });
+                    clearTimeout(timeoutId);
+                    return res.ok || res.status === 206;
+                } catch(e) {
+                    return false;
+                }
+            }
+            
+            // প্রায়োরিটি: mainURL -> backupURL
+            let mainAlive = false;
+            let backupAlive = false;
+            
+            if(channel.mainUrl) mainAlive = await testUrl(channel.mainUrl, 3500);
+            if(!mainAlive && channel.hasBackup && channel.backupUrl) backupAlive = await testUrl(channel.backupUrl, 3500);
+            
+            if(mainAlive) {
+                selectedUrl = channel.mainUrl;
+                isBackup = false;
+            } else if(backupAlive) {
+                selectedUrl = channel.backupUrl;
+                isBackup = true;
+            } else {
+                // শেষ চেষ্টা: সরাসরি কোন চেক ছাড়া প্লে করার চেষ্টা (কিছু URL HEAD সাপোর্ট না করতে পারে)
+                if(channel.mainUrl) {
+                    selectedUrl = channel.mainUrl;
+                    isBackup = false;
+                } else if(channel.backupUrl) {
+                    selectedUrl = channel.backupUrl;
+                    isBackup = true;
+                }
+            }
+            
+            if(!selectedUrl) {
+                playerStatusSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> অফলাইন (কোনো লিংক নেই)';
+                playerStatusSpan.classList.add('offline');
+                return;
+            }
+            
+            // বিদ্যমান hls ধ্বংস
+            if(hls) {
+                hls.destroy();
+                hls = null;
+            }
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+            
+            const urlLower = selectedUrl.toLowerCase();
+            const isM3U8 = urlLower.includes('.m3u8') || urlLower.includes('application/vnd.apple.mpegurl') || selectedUrl.includes('m3u8');
+            const isTs = urlLower.endsWith('.ts') || urlLower.includes('.ts?');
+            
+            // HLS.js দিয়ে m3u8 প্লে করার চেষ্টা
+            if(isM3U8 && Hls.isSupported()) {
+                try {
+                    hls = new Hls({ 
+                        enableWorker: true, 
+                        lowLatencyMode: true,
+                        maxBufferLength: 30,
+                        maxMaxBufferLength: 60,
+                        manifestLoadingTimeOut: 10000,
+                        levelLoadingTimeOut: 10000
+                    });
+                    hls.loadSource(selectedUrl);
+                    hls.attachMedia(video);
+                    
+                    let playbackStarted = false;
+                    const manifestParsedHandler = () => {
+                        if(!playbackStarted) {
+                            playbackStarted = true;
+                            video.play().catch(e => console.warn("Playback autoplay blocked", e));
+                            playerStatusSpan.innerHTML = `<i class="fas fa-circle" style="font-size: 8px;"></i> লাইভ${isBackup ? ' [ব্যাকআপ]' : ''}`;
+                            playerStatusSpan.classList.remove('offline');
+                        }
+                    };
+                    
+                    hls.on(Hls.Events.MANIFEST_PARSED, manifestParsedHandler);
+                    
+                    hls.on(Hls.Events.ERROR, (event, data) => {
+                        if(data.fatal) {
+                            if(data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+                                console.error("Fatal network error, trying to recover...");
+                                hls.startLoad();
+                            } else if(data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+                                hls.recoverMediaError();
+                            } else {
+                                playerStatusSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> স্ট্রিম এরর';
+                                playerStatusSpan.classList.add('offline');
+                                hls.destroy();
+                            }
+                        }
+                    });
+                    
+                    // টাইমআউট: ১৫ সেকেন্ডের মধ্যে manifest না এলে offline দেখান
+                    setTimeout(() => {
+                        if(!playbackStarted && hls && !video.currentTime) {
+                            playerStatusSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> অফলাইন / ধীরগতি';
+                            playerStatusSpan.classList.add('offline');
+                        }
+                    }, 12000);
+                    
+                } catch(e) {
+                    console.error("HLS error", e);
+                    fallbackNativePlay(selectedUrl, isBackup);
+                }
+            } 
+            else {
+                // Native playback (ts, mp4, বা direct m3u8 on safari)
+                fallbackNativePlay(selectedUrl, isBackup);
+            }
+            
+            function fallbackNativePlay(url, backupFlag) {
+                video.src = url;
+                video.load();
+                let started = false;
+                const canPlayHandler = () => {
+                    if(!started) {
+                        started = true;
+                        video.play().catch(e=>console.log);
+                        playerStatusSpan.innerHTML = `<i class="fas fa-circle" style="font-size: 8px;"></i> লাইভ${backupFlag ? ' [ব্যাকআপ]' : ''}`;
+                        playerStatusSpan.classList.remove('offline');
+                    }
+                };
+                video.addEventListener('canplay', canPlayHandler, { once: true });
+                video.addEventListener('error', () => {
+                    if(!started) {
+                        playerStatusSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> অফলাইন (স্ট্রিম লোড হয়নি)';
+                        playerStatusSpan.classList.add('offline');
+                    }
+                });
+                setTimeout(() => {
+                    if(!started && !video.currentTime) {
+                        playerStatusSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> অফলাইন / টাইমআউট';
+                        playerStatusSpan.classList.add('offline');
+                    }
+                }, 10000);
+            }
+        }
+        
+        function escapeHtml(str) {
+            if(!str) return '';
+            return str.replace(/[&<>]/g, m => m==='&'?'&amp;': m==='<'?'&lt;':'&gt;');
+        }
+        
+        // সার্চ & ক্যাটাগরি ইভেন্ট
+        searchInput.addEventListener('input', (e) => {
+            searchKeyword = e.target.value;
+            applyFilters();
+        });
+        
+        categoriesContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.cat-btn');
+            if(!btn) return;
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCategory = btn.dataset.cat;
+            const catText = btn.innerText;
+            sectionTitleSpan.innerText = catText + ' চ্যানেল';
+            applyFilters();
+        });
+        
+        // অ্যাডমিন প্যানেল
+        const devBtn = document.getElementById('devBtn');
+        const passwordModal = document.getElementById('passwordModal');
+        const adminPanel = document.getElementById('adminPanel');
+        const adminPassword = document.getElementById('adminPassword');
+        const verifyBtn = document.getElementById('verifyBtn');
+        const passError = document.getElementById('passError');
+        const mainUrlInput = document.getElementById('mainUrlInput');
+        const backupUrlInput = document.getElementById('backupUrlInput');
+        const saveUrlBtn = document.getElementById('saveUrlBtn');
+        const closeAdminBtn = document.getElementById('closeAdminBtn');
+        
+        devBtn.addEventListener('click', () => {
+            adminPassword.value = '';
+            passError.style.display = 'none';
+            passwordModal.classList.add('active');
+        });
+        
+        verifyBtn.addEventListener('click', () => {
+            if(adminPassword.value === ADMIN_PASSWORD) {
+                passwordModal.classList.remove('active');
+                mainUrlInput.value = currentM3uUrl;
+                backupUrlInput.value = currentBackupM3uUrl;
+                adminPanel.classList.add('active');
+            } else {
+                passError.style.display = 'block';
+                setTimeout(() => passError.style.display = 'none', 1500);
+            }
+        });
+        
+        adminPassword.addEventListener('keypress', (e) => { if(e.key === 'Enter') verifyBtn.click(); });
+        
+        saveUrlBtn.addEventListener('click', () => {
+            const newMain = mainUrlInput.value.trim();
+            if(newMain) {
+                currentM3uUrl = newMain;
+                localStorage.setItem('rollaxtt_m3u_url', newMain);
+            }
+            currentBackupM3uUrl = backupUrlInput.value.trim();
+            localStorage.setItem('rollaxtt_backup_m3u_url', currentBackupM3uUrl);
+            adminPanel.classList.remove('active');
+            // রিলোড চ্যানেল
+            loadAllChannels();
+            showToast('✅ নতুন প্লেলিস্ট সংরক্ষিত হয়েছে!');
+        });
+        
+        closeAdminBtn.addEventListener('click', () => adminPanel.classList.remove('active'));
+        
+        window.addEventListener('click', (e) => {
+            if(e.target === passwordModal) passwordModal.classList.remove('active');
+            if(e.target === adminPanel) adminPanel.classList.remove('active');
+        });
+        
+        // শুরু করুন
+        loadAllChannels();
+        
+        // সক্রিয় থাকাকালীন ভিডিও প্লেয়ার error recovery
+        video.addEventListener('stalled', () => {
+            if(currentPlayingChannel) {
+                console.log("Video stalled, attempt recovery");
+                playChannel(currentPlayingChannel).catch(e=>console.warn);
+            }
+        });
+    })();
+</script>
+</body>
+</html>
